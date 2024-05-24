@@ -5,13 +5,15 @@ import org.iesalandalus.programacion.reservashotel.controlador.Controlador;
 import org.iesalandalus.programacion.reservashotel.modelo.FactoriaFuenteDatos;
 import org.iesalandalus.programacion.reservashotel.modelo.IModelo;
 import org.iesalandalus.programacion.reservashotel.modelo.Modelo;
+import org.iesalandalus.programacion.reservashotel.vista.FactoriaVista;
+import org.iesalandalus.programacion.reservashotel.vista.Vista;
 import org.iesalandalus.programacion.reservashotel.vista.texto.VistaTexto;
 
 public class MainApp {
     public static void main(String[] args) {
 
-        VistaTexto vista = new VistaTexto();
         IModelo modelo = procesarArgumentosFuenteDatos(args[0]);
+        Vista vista = procesarArgumentosVista(args[1]);
         Controlador controlador = new Controlador(modelo, vista);
         controlador.comenzar();
     }
@@ -25,5 +27,15 @@ public class MainApp {
             modelo = new Modelo(FactoriaFuenteDatos.MONGODB);
         }
         return modelo;
+    }
+    private static Vista procesarArgumentosVista(String args){
+        Vista vista = FactoriaVista.TEXTO.crear();;
+        if (args.equals("-vTexto")){
+            vista = FactoriaVista.TEXTO.crear();
+        }
+        if (args.equals("-vGrafica")){
+            vista = FactoriaVista.GRAFICA.crear();
+        }
+        return vista;
     }
 }

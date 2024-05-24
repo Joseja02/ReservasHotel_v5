@@ -76,11 +76,7 @@ public class VistaTexto extends Vista {
             }
             controlador.borrar(huesped);
             System.out.print("El huésped ha sido borrado");
-        } catch (NullPointerException e) {
-            System.out.print(e.getMessage());
-        } catch (IllegalArgumentException e) {
-            System.out.print(e.getMessage());
-        } catch (OperationNotSupportedException e) {
+        } catch (NullPointerException | IllegalArgumentException | OperationNotSupportedException e) {
             System.out.print(e.getMessage());
         }
     }

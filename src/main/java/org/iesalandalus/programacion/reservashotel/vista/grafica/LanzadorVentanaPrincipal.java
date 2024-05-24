@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import org.iesalandalus.programacion.reservashotel.vista.grafica.recursos.LocalizadorRecursos;
+import org.iesalandalus.programacion.reservashotel.vista.grafica.utilidades.Dialogos;
 
 public class LanzadorVentanaPrincipal extends Application {
 
@@ -16,12 +17,12 @@ public class LanzadorVentanaPrincipal extends Application {
         start(escenario);
     }
     @Override
-    public void start(Stage escenarioPrincipal) throws Exception {
+    public void start(Stage escenarioPrincipal) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(LocalizadorRecursos.class.getResource("vistas/ventanaPrincipal.fxml"));
-            Parent raiz=fxmlLoader.load();
-            Scene escena = new Scene(raiz, 600, 800);
-            escenarioPrincipal.setTitle("Reservas Hotel v5 - Jose Javier Sierra Berdún");
+            Parent raiz = FXMLLoader.load(LocalizadorRecursos.class.getResource("vistas/ventanaPrincipal.fxml"));
+            Scene escena = new Scene(raiz, 800, 600);
+            escenarioPrincipal.setTitle("Reservas Hotel v5 - Jose Javier Sierra Berdun");
+            escenarioPrincipal.setResizable(false);
             escenarioPrincipal.setScene(escena);
             escenarioPrincipal.setOnCloseRequest(e->confirmarSalida(escenarioPrincipal,e));
             escenarioPrincipal.show();
@@ -31,7 +32,7 @@ public class LanzadorVentanaPrincipal extends Application {
     }
 
     private void confirmarSalida(Stage escenarioPrincipal, WindowEvent e){
-        if (Dialogos.mostrarDialogoConfirmacion("Reservas Hotel v5 - Jose Javier Sierra Berdún", "Estas seguro que quieres salirte de la aplicacion"))
+        if (Dialogos.mostrarDialogoConfirmacion("Reservas Hotel v5 - Jose Javier Sierra Berdun", "Estas seguro que quieres salirte de la aplicacion"))
         {
             escenarioPrincipal.close();
         }

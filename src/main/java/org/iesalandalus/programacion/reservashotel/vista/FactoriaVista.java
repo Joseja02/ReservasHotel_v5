@@ -8,7 +8,7 @@ public enum FactoriaVista {
         public Vista crear(){ return new VistaTexto(); }
     },
     GRAFICA{
-        public Vista crear(){ return new VistaGrafica(); }
+        public Vista crear(){ return VistaGrafica.getInstancia(); }
     };
     public abstract Vista crear();
 }
