@@ -25,7 +25,7 @@ public class Doble extends Habitacion {
     }
     public void setNumCamasIndividuales(int numCamasIndividuales) {
         if (numCamasIndividuales < MIN_NUM_CAMAS_INDIVIDUALES || numCamasIndividuales > MAX_NUM_CAMAS_INDIVIDUALES){
-            throw new IllegalArgumentException("ERROR: El n鷐ero de camas individuales de una habitaci髇 doble no puede ser inferior a 0 ni mayor que 2");
+            throw new IllegalArgumentException("ERROR: El n煤mero de camas individuales de una habitaci贸n doble no puede ser inferior a 0 ni mayor que 2");
         }
         this.numCamasIndividuales = numCamasIndividuales;
     }
@@ -34,7 +34,7 @@ public class Doble extends Habitacion {
     }
     public void setNumCamasDobles(int numCamasDobles) {
         if (numCamasDobles < MIN_NUM_CAMAS_DOBLES || numCamasDobles > MAX_NUM_CAMAS_DOBLES){
-            throw new IllegalArgumentException("ERROR: El n鷐ero de camas dobles de una habitaci髇 doble no puede ser inferior a 0 ni mayor que 1");
+            throw new IllegalArgumentException("ERROR: El n煤mero de camas dobles de una habitaci贸n doble no puede ser inferior a 0 ni mayor que 1");
         }
         this.numCamasDobles = numCamasDobles;
     }
@@ -42,14 +42,14 @@ public class Doble extends Habitacion {
         if ((numCamasIndividuales == MAX_NUM_CAMAS_INDIVIDUALES && numCamasDobles == MIN_NUM_CAMAS_DOBLES) || (numCamasIndividuales == MIN_NUM_CAMAS_INDIVIDUALES && numCamasDobles == MAX_NUM_CAMAS_DOBLES)){
             //No se lanza excepcion puesto que o hay 2 camas individuales o hay 1 cama doble.
         } else {
-            throw new IllegalArgumentException("ERROR: La distribuci髇 de camas en una habitaci髇 doble tiene que ser 2 camas individuales y 0 doble o 0 camas individuales y 1 doble");
+            throw new IllegalArgumentException("ERROR: La distribuci贸n de camas en una habitaci贸n doble tiene que ser 2 camas individuales y 0 doble o 0 camas individuales y 1 doble");
         }
     }
     @Override
     public int getNumeroMaximoPersonas() { return NUM_MAXIMO_PERSONAS; }
     @Override
     public String toString() {
-        return super.toString() + ", habitaci髇 doble, " + "capacidad=" + NUM_MAXIMO_PERSONAS +
+        return super.toString() + ", habitaci贸n doble, " + "capacidad=" + NUM_MAXIMO_PERSONAS +
                 " personas," + " camas individuales=" + getNumCamasIndividuales() + ", camas dobles=" + getNumCamasDobles();
     }
 }

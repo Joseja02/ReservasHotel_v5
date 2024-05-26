@@ -37,7 +37,7 @@ public class Habitaciones implements IHabitaciones {
     public List<Habitacion> get(TipoHabitacion tipoHabitacion) {
 
         if (tipoHabitacion == null){
-            throw new NullPointerException("ERROR: El tipo de habitaci髇 no puede ser nulo");
+            throw new NullPointerException("ERROR: El tipo de habitaci贸n no puede ser nulo");
         }
         String tipoHabitacionString = "";
 
@@ -68,7 +68,7 @@ public class Habitaciones implements IHabitaciones {
     public void insertar(Habitacion habitacion) throws OperationNotSupportedException {
 
         if (habitacion == null) {
-            throw new NullPointerException("ERROR: No se puede insertar una habitaci髇 nula.");
+            throw new NullPointerException("ERROR: No se puede insertar una habitaci贸n nula.");
         }
 
         Document documentoHabitacionColeccion = coleccionHabitaciones.find(Filters.eq("identificador", habitacion.getIdentificador())).first();
@@ -78,7 +78,7 @@ public class Habitaciones implements IHabitaciones {
             coleccionHabitaciones.insertOne(MongoDB.getDocumento(habitacion));
         } else {
             if (documentoHabitacionColeccion.get("identificador").equals(documentoHabitacionParametro.get("identificador"))) {
-                throw new OperationNotSupportedException("ERROR: Ya existe una habitaci髇 con ese identificador.");
+                throw new OperationNotSupportedException("ERROR: Ya existe una habitaci贸n con ese identificador.");
             } else {
                 coleccionHabitaciones.insertOne(MongoDB.getDocumento(habitacion));
             }
@@ -88,7 +88,7 @@ public class Habitaciones implements IHabitaciones {
     public Habitacion buscar(Habitacion habitacion) {
 
         if (habitacion == null) {
-            throw new NullPointerException("ERROR: No se puede buscar una habitaci髇 nula.");
+            throw new NullPointerException("ERROR: No se puede buscar una habitaci贸n nula.");
         }
 
         Document documentoHabitacionColeccion = coleccionHabitaciones.find(Filters.eq("identificador", habitacion.getIdentificador())).first();
@@ -107,13 +107,13 @@ public class Habitaciones implements IHabitaciones {
 
     public void borrar(Habitacion habitacion) throws OperationNotSupportedException {
         if (habitacion == null) {
-            throw new NullPointerException("ERROR: No se puede borrar una habitaci髇 nula.");
+            throw new NullPointerException("ERROR: No se puede borrar una habitaci贸n nula.");
         }
         Document documentoHabitacionColeccion = coleccionHabitaciones.find(Filters.eq("identificador", habitacion.getIdentificador())).first();
         Document documentoHabitacionParametro = MongoDB.getDocumento(habitacion);
 
         if(documentoHabitacionColeccion == null){
-            throw new OperationNotSupportedException("ERROR: No existe ninguna habitaci髇 como la indicada.");
+            throw new OperationNotSupportedException("ERROR: No existe ninguna habitaci贸n como la indicada.");
         }
         if (documentoHabitacionColeccion.get("identificador").equals(documentoHabitacionParametro.get("identificador"))) {
             coleccionHabitaciones.deleteOne(documentoHabitacionColeccion);
@@ -125,6 +125,6 @@ public class Habitaciones implements IHabitaciones {
     }
     public void terminar(){
         MongoDB.cerrarConexion();
-        System.out.println("Conexi髇 con MongoDB cerrada con 閤ito.");
+        System.out.println("Conexi贸n con MongoDB cerrada con 茅xito.");
     }
 }

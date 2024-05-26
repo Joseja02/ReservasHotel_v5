@@ -6,6 +6,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuItem;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.iesalandalus.programacion.reservashotel.vista.grafica.recursos.LocalizadorRecursos;
@@ -14,19 +16,13 @@ import org.iesalandalus.programacion.reservashotel.vista.grafica.utilidades.Dial
 import java.io.IOException;
 
 public class ControladorVentanaPrincipal {
-
-    @FXML private Button btnMenuHuespedes;
-    @FXML private Button btnMenuHabitaciones;
-    @FXML private Button btnMenuReservas;
-    @FXML private Button btnSalir;
-
     @FXML void abrirVentanaHuespedes() {
         FXMLLoader fxmlLoader = new FXMLLoader(LocalizadorRecursos.class.getResource("vistas/ventanaHuespedes.fxml"));
         ControladorVentanaHuespedes c = fxmlLoader.getController();
         try {
             Parent raiz = fxmlLoader.load();
 
-            Scene escena = new Scene(raiz, 1022, 660);
+            Scene escena = new Scene(raiz, 1022, 750);
             Stage ventanaHuespedes = new Stage();
             ventanaHuespedes.setScene(escena);
             ventanaHuespedes.initModality(Modality.WINDOW_MODAL);
@@ -43,7 +39,7 @@ public class ControladorVentanaPrincipal {
         try {
             Parent raiz = fxmlLoader.load();
 
-            Scene escena = new Scene(raiz, 800, 600);
+            Scene escena = new Scene(raiz, 1022, 790);
             Stage ventanaHuespedes = new Stage();
             ventanaHuespedes.setScene(escena);
             ventanaHuespedes.initModality(Modality.WINDOW_MODAL);
@@ -60,7 +56,7 @@ public class ControladorVentanaPrincipal {
         try {
             Parent raiz = fxmlLoader.load();
 
-            Scene escena = new Scene(raiz, 800, 600);
+            Scene escena = new Scene(raiz, 1022, 807);
             Stage ventanaHuespedes = new Stage();
             ventanaHuespedes.setScene(escena);
             ventanaHuespedes.initModality(Modality.WINDOW_MODAL);
@@ -73,7 +69,7 @@ public class ControladorVentanaPrincipal {
     }
 
     @FXML void salir(ActionEvent event) {
-        if (Dialogos.mostrarDialogoConfirmacion("Reservas Hotel v5 - Jose Javier Sierra Berdun", "Estas seguro que quieres salir de la aplicacion"))
+        if (Dialogos.mostrarDialogoConfirmacion("Reservas Hotel v5 - Jose Javier Sierra Berdún", "¿Seguro que quieres salir de la aplicación"))
         {
             System.exit(0);
         }

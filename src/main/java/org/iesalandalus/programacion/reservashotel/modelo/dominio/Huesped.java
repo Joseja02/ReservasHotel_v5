@@ -27,7 +27,7 @@ public class Huesped {
     }
     public Huesped (Huesped huespedCopia){
         if (huespedCopia == null){
-            throw new NullPointerException("ERROR: No es posible copiar un huÈsped nulo.");
+            throw new NullPointerException("ERROR: No es posible copiar un hu√©sped nulo.");
         }
 
         this.nombre = huespedCopia.getNombre();
@@ -70,7 +70,7 @@ public class Huesped {
             letraValida = letraCalculada == letraDNI.charAt(0);
 
         } else {
-            throw new IllegalArgumentException("ERROR: El dni del huÈsped no tiene un formato v·lido.");
+            throw new IllegalArgumentException("ERROR: El dni del hu√©sped no tiene un formato v√°lido.");
         }
         return letraValida;
     }
@@ -79,10 +79,10 @@ public class Huesped {
     }
     public void setNombre(String nombre) {
         if (nombre == null) {
-            throw new NullPointerException("ERROR: El nombre de un huÈsped no puede ser nulo.");
+            throw new NullPointerException("ERROR: El nombre de un hu√©sped no puede ser nulo.");
         }
         if (nombre.isBlank()){
-            throw new IllegalArgumentException("ERROR: El nombre de un huÈsped no puede estar vacÌo.");
+            throw new IllegalArgumentException("ERROR: El nombre de un hu√©sped no puede estar vac√≠o.");
         }
             this.nombre = formateaNombre(nombre);
     }
@@ -91,12 +91,12 @@ public class Huesped {
     }
     public void setTelefono(String telefono) {
         if (telefono == null) {
-            throw new NullPointerException("ERROR: El telÈfono de un huÈsped no puede ser nulo.");
+            throw new NullPointerException("ERROR: El tel√©fono de un hu√©sped no puede ser nulo.");
         }
         if (telefono.matches(ER_TELEFONO)) {
             this.telefono = telefono;
         } else {
-            throw new IllegalArgumentException("ERROR: El telÈfono del huÈsped no tiene un formato v·lido.");
+            throw new IllegalArgumentException("ERROR: El tel√©fono del hu√©sped no tiene un formato v√°lido.");
         }
     }
     public String getCorreo() {
@@ -104,12 +104,12 @@ public class Huesped {
     }
     public void setCorreo(String correo) {
         if (correo == null) {
-            throw new NullPointerException("ERROR: El correo de un huÈsped no puede ser nulo.");
+            throw new NullPointerException("ERROR: El correo de un hu√©sped no puede ser nulo.");
         }
         if (correo.matches(ER_CORREO)) {
             this.correo = correo;
         } else {
-            throw new IllegalArgumentException("ERROR: El correo del huÈsped no tiene un formato v·lido.");
+            throw new IllegalArgumentException("ERROR: El correo del hu√©sped no tiene un formato v√°lido.");
         }
     }
     public String getDni() {
@@ -118,11 +118,11 @@ public class Huesped {
     private void setDni(String dni) {
 
         if (dni == null ) {
-            throw new NullPointerException("ERROR: El dni de un huÈsped no puede ser nulo.");
+            throw new NullPointerException("ERROR: El dni de un hu√©sped no puede ser nulo.");
         }
             comprobarLetraDNI(dni);
             if (!comprobarLetraDNI(dni)){
-                throw new IllegalArgumentException("ERROR: La letra del dni del huÈsped no es correcta.");
+                throw new IllegalArgumentException("ERROR: La letra del dni del hu√©sped no es correcta.");
             }
             this.dni = dni;
     }
@@ -131,10 +131,10 @@ public class Huesped {
     }
     private void setFechaNacimiento(LocalDate fechaNacimiento) {
         if (fechaNacimiento == null) {
-            throw new NullPointerException("ERROR: La fecha de nacimiento de un huÈsped no puede ser nula.");
+            throw new NullPointerException("ERROR: La fecha de nacimiento de un hu√©sped no puede ser nula.");
         }
         if (fechaNacimiento.isAfter(LocalDate.now())){
-            throw new IllegalArgumentException("ERROR: La fecha de nacimiento de un huÈsped no puede ser posterior a hoy.");
+            throw new IllegalArgumentException("ERROR: La fecha de nacimiento de un hu√©sped no puede ser posterior a hoy.");
         }
         this.fechaNacimiento = fechaNacimiento;
     }
@@ -166,7 +166,7 @@ public class Huesped {
         return "nombre=" + nombre + " " + "(" + getIniciales() + ")" +
                 ", DNI=" + dni +
                 ", correo=" + correo +
-                ", telÈfono=" + telefono +
+                ", tel√©fono=" + telefono +
                 ", fecha nacimiento=" + fechaNacimiento.format(DateTimeFormatter.ofPattern(FORMATO_FECHA));
     }
 }

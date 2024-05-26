@@ -65,7 +65,7 @@ public class Modelo implements IModelo {
         return huespedes.get();
     }
 
-    // Habitación
+    // HabitaciÃ³n
     public void insertar(Habitacion habitacion) throws OperationNotSupportedException {
         habitaciones.insertar(habitacion);
     }

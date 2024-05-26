@@ -38,7 +38,7 @@ public class Huespedes implements IHuespedes {
     public void insertar(Huesped huesped) throws OperationNotSupportedException {
 
         if (huesped == null) {
-            throw new NullPointerException("ERROR: No se puede insertar un huésped nulo.");
+            throw new NullPointerException("ERROR: No se puede insertar un huÃ©sped nulo.");
         }
 
         Document documentoHuespedColeccion = coleccionHuespedes.find(Filters.eq("dni", huesped.getDni())).first();
@@ -48,7 +48,7 @@ public class Huespedes implements IHuespedes {
             coleccionHuespedes.insertOne(MongoDB.getDocumento(huesped));
         } else {
             if (documentoHuespedColeccion.get("dni").equals(documentoHuespedParametro.get("dni"))) {
-                throw new OperationNotSupportedException("ERROR: No existe ningún huésped como el indicado.");
+                throw new OperationNotSupportedException("ERROR: No existe ningÃºn huÃ©sped como el indicado.");
             } else {
                 coleccionHuespedes.insertOne(MongoDB.getDocumento(huesped));
             }
@@ -57,7 +57,7 @@ public class Huespedes implements IHuespedes {
 
     public Huesped buscar(Huesped huesped) {
         if (huesped == null) {
-            throw new NullPointerException("ERROR: No se puede buscar un huésped nulo.");
+            throw new NullPointerException("ERROR: No se puede buscar un huÃ©sped nulo.");
         }
 
         Document documentoHuespedColeccion = coleccionHuespedes.find(Filters.eq("dni", huesped.getDni())).first();
@@ -77,14 +77,14 @@ public class Huespedes implements IHuespedes {
     public void borrar(Huesped huesped) throws OperationNotSupportedException {
 
         if (huesped == null) {
-            throw new NullPointerException("ERROR: No se puede borrar un huésped nulo.");
+            throw new NullPointerException("ERROR: No se puede borrar un huÃ©sped nulo.");
         }
 
         Document documentoHuespedColeccion = coleccionHuespedes.find(Filters.eq("dni", huesped.getDni())).first();
         Document documentoHuespedParametro = MongoDB.getDocumento(huesped);
 
         if(documentoHuespedColeccion == null){
-            throw new OperationNotSupportedException("ERROR: No existe ningún huésped como el indicado.");
+            throw new OperationNotSupportedException("ERROR: No existe ningÃºn huÃ©sped como el indicado.");
         }
         if (documentoHuespedColeccion.get("dni").equals(documentoHuespedParametro.get("dni"))) {
             coleccionHuespedes.deleteOne(documentoHuespedColeccion);
@@ -93,10 +93,10 @@ public class Huespedes implements IHuespedes {
     public void comenzar(){
         MongoDatabase database = MongoDB.getBD();
         coleccionHuespedes = database.getCollection(COLECCION);
-        System.out.println("Colección huespedes obtenida");
+        System.out.println("ColecciÃ³n huespedes obtenida");
     }
     public void terminar(){
         MongoDB.cerrarConexion();
-        System.out.println("Conexión con MongoDB cerrada con éxito.");
+        System.out.println("ConexiÃ³n con MongoDB cerrada con Ã©xito.");
     }
 }

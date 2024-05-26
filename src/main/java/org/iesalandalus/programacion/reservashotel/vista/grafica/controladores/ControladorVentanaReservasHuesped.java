@@ -35,7 +35,7 @@ public class ControladorVentanaReservasHuesped {
     private List<Reserva> coleccionReservasHuesped = new ArrayList<>();
     private ObservableList<Reserva> obsReservasHuesped = FXCollections.observableArrayList();
     @FXML private void initialize(){
-        lblHuesped.setText("AVISO: No hay ningun huesped cargado. Pulsa el boton de abajo para cargar las reservas del huesped");
+        lblHuesped.setText("AVISO: No hay ningún huésped cargado. Pulsa el botón de abajo para cargar las reservas del huésped");
         tcNombreDni.setCellValueFactory(reserva-> new SimpleStringProperty(reserva.getValue().getHuesped().getNombre() + ", " +  reserva.getValue().getHuesped().getDni()));
         tcIdTipo.setCellValueFactory(reserva -> {
             Habitacion habitacion = reserva.getValue().getHabitacion();
@@ -69,13 +69,7 @@ public class ControladorVentanaReservasHuesped {
             initialize();
             lblHuesped.setText(huesped.getNombre() + ", " + huesped.getDni());
         } catch (NullPointerException | IllegalArgumentException e){
-            Dialogos.mostrarDialogoAdvertencia("ReservasHotel v5 - Buscar reservas de un Huesped", e.getMessage());
+            Dialogos.mostrarDialogoAdvertencia("ReservasHotel v5 - Buscar reservas de un huésped", e.getMessage());
         }
     }
-
-    private void recibirTipoHabitacion(){
-        TipoHabitacion tipoHabitacion = null;
-
-    }
-
 }

@@ -76,38 +76,38 @@ public class ControladorVentanaHuespedes {
 
     private void filtraHuespedes(String newValue)
     {
-        FilteredList<Huesped> filtradoPersonas = new FilteredList<>(obsHuespedes, huesped-> true);
-        filtradoPersonas.setPredicate(persona -> {
+        FilteredList<Huesped> filtradoHuespedes = new FilteredList<>(obsHuespedes, huesped-> true);
+        filtradoHuespedes.setPredicate(huesped -> {
             if (newValue.isBlank() || newValue.isEmpty() || newValue == null)
                 return true;
             String cadenaFiltrado = newValue.toLowerCase();
-            return persona.getNombre().toLowerCase().startsWith(cadenaFiltrado);
+            return huesped.getNombre().toLowerCase().startsWith(cadenaFiltrado);
         });
-        tvHuespedes.setItems(filtradoPersonas);
+        tvHuespedes.setItems(filtradoHuespedes);
     }
     private void filtraHuespedesAsc(String newValue)
     {
-        FilteredList<Huesped> filtradoPersonas = new FilteredList<>(obsHuespedes, huesped-> true);
-        filtradoPersonas.setPredicate(persona -> {
+        FilteredList<Huesped> filtradoHuespedes = new FilteredList<>(obsHuespedes, huesped-> true);
+        filtradoHuespedes.setPredicate(huesped -> {
             if (newValue.isBlank() || newValue.isEmpty() || newValue == null)
                 return true;
             String cadenaFiltrado = newValue.toLowerCase();
-            return persona.getNombre().toLowerCase().startsWith(cadenaFiltrado);
+            return huesped.getNombre().toLowerCase().startsWith(cadenaFiltrado);
         });
-        List<Huesped> listaMutable = new ArrayList<>(filtradoPersonas);
+        List<Huesped> listaMutable = new ArrayList<>(filtradoHuespedes);
         Collections.sort(listaMutable, Comparator.comparing(Huesped::getNombre));
         tvHuespedes.setItems(FXCollections.observableArrayList(listaMutable));
     }
     private void filtraHuespedesDesc(String newValue)
     {
-        FilteredList<Huesped> filtradoPersonas = new FilteredList<>(obsHuespedes, huesped-> true);
-        filtradoPersonas.setPredicate(persona -> {
+        FilteredList<Huesped> filtradoHuespedes = new FilteredList<>(obsHuespedes, huesped-> true);
+        filtradoHuespedes.setPredicate(huesped -> {
             if (newValue.isBlank() || newValue.isEmpty() || newValue == null)
                 return true;
             String cadenaFiltrado = newValue.toLowerCase();
-            return persona.getNombre().toLowerCase().startsWith(cadenaFiltrado);
+            return huesped.getNombre().toLowerCase().startsWith(cadenaFiltrado);
         });
-        List<Huesped> listaMutable = new ArrayList<>(filtradoPersonas);
+        List<Huesped> listaMutable = new ArrayList<>(filtradoHuespedes);
         Collections.sort(listaMutable, Comparator.comparing(Huesped::getNombre).reversed());
         tvHuespedes.setItems(FXCollections.observableArrayList(listaMutable));
     }
@@ -158,7 +158,6 @@ public class ControladorVentanaHuespedes {
     }
     @FXML public void mostrarReservasHuesped(ActionEvent event) {
         FXMLLoader fxmlLoader = new FXMLLoader(LocalizadorRecursos.class.getResource("vistas/ventanaReservasHuesped.fxml"));
-        ControladorVentanaReservasHuesped c = fxmlLoader.getController();
         try {
             Controlador controlador = VistaGrafica.getInstancia().getControlador();
             Huesped huespedDni = new Huesped("Nombre Ficticio", tfDniBorrar.getText(), "ficticio@test.com", "123456789", LocalDate.of(2002, 8, 19));

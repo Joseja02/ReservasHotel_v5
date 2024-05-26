@@ -30,7 +30,7 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <Label fx:id="lblHuesped" alignment="CENTER" layoutX="71.0" layoutY="148.0" prefHeight="17.0" prefWidth="566.0" text="Label" textAlignment="CENTER" />
+      <Label fx:id="lblHuesped" alignment="CENTER" layoutX="10.0" layoutY="143.0" prefHeight="17.0" prefWidth="691.0" text="Label" textAlignment="CENTER" />
       <Button fx:id="btnCargarReservasHuesped" layoutX="207.0" layoutY="174.0" mnemonicParsing="false" onAction="#cargarDatosReservasHuesped" text="Pulsa aqui para cargar las reservas del Huesped" />
    </children>
 </AnchorPane>

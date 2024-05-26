@@ -82,7 +82,7 @@ public class Reservas implements IReservas {
 
     public List<Reserva> getReservas(Huesped huesped) {
         if (huesped == null) {
-            throw new NullPointerException("ERROR: No se pueden buscar reservas de un huésped nulo.");
+            throw new NullPointerException("ERROR: No se pueden buscar reservas de un huÃ©sped nulo.");
         }
         List<Reserva> reservasHuesped = new ArrayList<>();
         Iterator<Reserva> iterador = get().iterator();
@@ -99,7 +99,7 @@ public class Reservas implements IReservas {
 
     public List<Reserva> getReservas(TipoHabitacion tipoHabitacion) {
         if (tipoHabitacion == null) {
-            throw new NullPointerException("ERROR: No se pueden buscar reservas de un tipo de habitación nula.");
+            throw new NullPointerException("ERROR: No se pueden buscar reservas de un tipo de habitaciÃ³n nula.");
         }
         List<Reserva> reservasHuesped = new ArrayList<>();
         Iterator<Reserva> iterador = get().iterator();
@@ -124,7 +124,7 @@ public class Reservas implements IReservas {
     }
     public List<Reserva> getReservas(Habitacion habitacion) {
         if (habitacion == null) {
-            throw new NullPointerException("ERROR: No se pueden buscar reservas de una habitación nulo.");
+            throw new NullPointerException("ERROR: No se pueden buscar reservas de una habitaciÃ³n nulo.");
         }
         List<Reserva> reservasHabitacion = new ArrayList<>();
         Iterator<Reserva> iterador = get().iterator();
@@ -140,7 +140,7 @@ public class Reservas implements IReservas {
     }
     public List<Reserva> getReservasFuturas(Habitacion habitacion) {
         if (habitacion == null)
-            throw new NullPointerException("ERROR: No se pueden buscar reservas de una habitación nula.");
+            throw new NullPointerException("ERROR: No se pueden buscar reservas de una habitaciÃ³n nula.");
 
         List<Reserva> reservasHuesped = new ArrayList<>();
         Iterator<Reserva> iterador = get().iterator();

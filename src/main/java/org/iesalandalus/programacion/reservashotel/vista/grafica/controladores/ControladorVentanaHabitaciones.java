@@ -35,7 +35,6 @@ public class ControladorVentanaHabitaciones {
     @FXML private TextField tfPuerta;
     @FXML private TextField tfPrecio;
     @FXML private ChoiceBox<TipoHabitacion> cbTipoHabitacion;
-    @FXML private ChoiceBox<TipoHabitacion> cbTipoHabitacionBorrar;
     @FXML private TextField tfCamasIndividuales;
     @FXML private TextField tfCamasDobles;
     @FXML private TextField tfBanos;
@@ -82,7 +81,6 @@ public class ControladorVentanaHabitaciones {
             return new SimpleStringProperty(datosHabitacion);
         });
         cbTipoHabitacion.getItems().addAll(TipoHabitacion.values());
-        cbTipoHabitacionBorrar.getItems().addAll(TipoHabitacion.values());
         tvHabitaciones.setItems(obsHabitaciones);
     }
     private void filtraHabitaciones(String newValue)
@@ -126,7 +124,7 @@ public class ControladorVentanaHabitaciones {
     @FXML void insertarHabitacion() {
         try {
             Controlador controlador = VistaGrafica.getInstancia().getControlador();
-            Habitacion habitacion = null;
+            Habitacion habitacion;
 
             if (cbTipoHabitacion.getValue() == TipoHabitacion.values()[1]){
                 if (tfPlanta.getText().isBlank() || tfPuerta.getText().isBlank() || tfPrecio.getText().isBlank()){
